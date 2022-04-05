@@ -1,6 +1,7 @@
 # require './classes/question'
 
 class Game
+  attr_accessor :current_player
 
   def initialize
     @current_player = nil
@@ -23,6 +24,12 @@ class Game
 
     if question.correct?(answer)
       puts "That is correct!"
+      @current_player.score_point
+      puts "Your score is now #{@current_player.score}."
+    else
+      puts "I'm sorry, but that's incorrect. You have lost a life..."
+      @current_player.lose_life
+      puts "#{@current_player.name} now has #{@current_player.lives} lives remaining."
     end
 
   end

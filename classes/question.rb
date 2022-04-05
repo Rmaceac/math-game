@@ -11,7 +11,7 @@ class Question
   end
 
   def correct?(answer)
-    answer == @solution
+    answer.to_i == @solution
   end
 
 end
