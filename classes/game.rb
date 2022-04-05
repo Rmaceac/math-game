@@ -1,4 +1,3 @@
-# require './classes/question'
 
 class Game
   attr_accessor :current_player
