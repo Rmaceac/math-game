@@ -18,6 +18,7 @@ class Game
     switch_player
 
     question = Question.new
+    puts "----- NEW TURN -----"
     puts "Question number #{@round}:"
     print "#{@current_player.name}... #{question.print_question}"
     answer = $stdin.gets.chomp
@@ -63,6 +64,15 @@ class Game
     else
       @current_player = @players[0]
     end
+  end
+
+  def game_over
+    puts "We have a winner!"
+    @players.each { |player|
+      if player.lives > 0
+        puts "#{player.name} is the winner with a score of #{player.score} and #{player.lives} remaining!"
+      end
+    }
   end
 
 end
